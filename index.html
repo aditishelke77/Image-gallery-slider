@@ -12,24 +12,39 @@
             background-color: tomato;
             display: block;
             margin: 20px auto;
+            border-radius: 5px;
         }
         .btn-container{
-            display: flex;
-            justify-content: center;
+           width: fit-content;
+            position: relative;
+            display: block;
+            margin: 10px auto;
         }
         .btn{
             height: 50px;
             margin: 0 10px;
+            cursor: pointer;
+            background-color: white;
+            border-radius: 50%;
         }
-
+        .btn-left{
+            position: absolute;
+             top: 120px;
+            left: -30px;
+        }
+       .btn-right{
+        position: absolute;
+        top: 120px;
+        right: -30px;
+       }
    </style>
 <body>
-<img src="./img/one.jpg" class="gallery-img" id="img"/>
 <div class="btn-container">
+    <img src="./img/one.jpg" class="gallery-img" id="img"/>
 
-    <img src="./img/left-arrow.png" class="btn" onclick="prev()"/>
+    <img src="./img/left-arrow.png" class="btn btn-left" onclick="prev()"/>
         
-    <img src="./img/right-arrow.png" class="btn" onclick="next()"/>
+    <img src="./img/right-arrow.png" class="btn btn-right" onclick="next()"/>
         
 </div>
     <script>
