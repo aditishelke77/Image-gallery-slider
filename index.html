@@ -1,87 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image gallery</title>
-   <style>
-    .gallery-img{
-            width: 400px;
-            height: 300px;
+    <style>
+        .gallery-img {
+            width: 700px;
+            height: 500px;
             object-fit: cover;
             background-color: tomato;
             display: block;
             margin: 20px auto;
-            border-radius: 5px;
+            border-radius: 10px;
         }
-        .btn-container{
-           width: fit-content;
+
+        .btn-container {
+            width: fit-content;
             position: relative;
             display: block;
             margin: 10px auto;
         }
-        .btn{
+
+        .btn {
             height: 50px;
             margin: 0 10px;
             cursor: pointer;
             background-color: white;
             border-radius: 50%;
-        }
-        .btn-left{
             position: absolute;
-             top: 120px;
+            top: 210px;
+        }
+
+        .btn-left {
             left: -30px;
         }
-       .btn-right{
-        position: absolute;
-        top: 120px;
-        right: -30px;
-       }
-   </style>
-<body>
-<div class="btn-container">
-    <img src="./img/one.jpg" class="gallery-img" id="img"/>
 
-    <img src="./img/left-arrow.png" class="btn btn-left" onclick="prev()"/>
-        
-    <img src="./img/right-arrow.png" class="btn btn-right" onclick="next()"/>
-        
-</div>
+        .btn-right {
+            right: -30px;
+        }
+    </style>
+
+<body>
+    <div class="btn-container">
+        <img src="./img/one.jpg" class="gallery-img" id="img" />
+
+        <img src="./img/left-arrow.png" class="btn btn-left" onclick="prev()" />
+
+        <img src="./img/right-arrow.png" class="btn btn-right" onclick="next()" />
+
+    </div>
     <script>
-        const imagesArr =[
+        const imagesArr = [
             "./img/one.jpg",
             "./img/two.jpg",
             "./img/three.jpg",
             "./img/four.jpg"
-    
+
         ];
-    let imgIndex = 0;
-        function prev(){
-            if(imgIndex==0){
-                imgIndex = imagesArr.length -1;
+        let imgIndex = 0;
+        const imgElement = document.getElementById('img');
+
+        function prev() {
+            if (imgIndex == 0) {
+                imgIndex = imagesArr.length - 1;
             }
-            else{
+            else {
                 imgIndex--;
             }
-            const imgElement = document.getElementById('img');
 
-            imgElement.src=imagesArr[imgIndex]
+            imgElement.src = imagesArr[imgIndex]
         }
-    function next(){
-        if(imgIndex == imagesArr.length-1){
-            imgIndex=0;
+        function next() {
+            if (imgIndex == imagesArr.length - 1) {
+                imgIndex = 0;
+
+            }
+            else {
+                imgIndex++;
+
+            }
+            imgElement.src = imagesArr[imgIndex]
 
         }
-        else{
-            imgIndex++;
-            
-        }
-        const imgElement = document.getElementById('img');
-        imgElement.src=imagesArr[imgIndex]
-
-    }
         //setInterval(next,2000);
 
     </script>
 </body>
+
 </html>
