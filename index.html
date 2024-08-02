@@ -13,8 +13,57 @@
             display: block;
             margin: 20px auto;
         }
-   </style>
-</body>
-<img src="./img/one.jpg" class="gallery-img"/>
+        .btn-container{
+            display: flex;
+            justify-content: center;
+        }
+        .btn{
+            margin: 0 10px;
+        }
 
+   </style>
+<body>
+<img src="./img/one.jpg" class="gallery-img" id="img"/>
+<div class="btn-container">
+
+    <button type="button" class="btn" onclick="prev()">
+        Prev</button>
+    <button type="button" class="btn" onclick="next()">
+        Next</button>
+</div>
+    <script>
+        const imagesArr =[
+            "./img/one.jpg",
+            "./img/two.jpg",
+            "./img/three.jpg",
+            "./img/four.jpg"
+    
+        ];
+    let imgIndex = 0;
+        function prev(){
+            if(imgIndex==0){
+                imgIndex = imagesArr.length -1;
+            }
+            else{
+                imgIndex--;
+            }
+            const imgElement = document.getElementById('img');
+
+            imgElement.src=imagesArr[imgIndex]
+        }
+    function next(){
+        if(imgIndex == imagesArr.length-1){
+            imgIndex=0;
+
+        }
+        else{
+            imgIndex++;
+            
+        }
+        const imgElement = document.getElementById('img');
+        imgElement.src=imagesArr[imgIndex]
+
+    }
+    </script>
+</body>
 </html>
